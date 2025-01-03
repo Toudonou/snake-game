@@ -32,9 +32,9 @@ This project is a simple snake game implemented in C++ using the [raylib](https:
 ## How to play
 Use the arrow keys to move the snake. 
   - `Up`: Moves snake's head upwards
-  - `Down`: Moves snake's head upwards
-  - `Left`: Moves snake's head upwards
-  - `Right`: Moves snake's head upwards
+  - `Down`: Moves snake's head downwards
+  - `Left`: Moves snake's head leftwards
+  - `Right`: Moves snake's head rightwards
 
 ## Author
 - [Toudonou](https://github.com/Toudonou)
