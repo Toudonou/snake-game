@@ -26,7 +26,7 @@ This project is a simple snake game implemented in C++ using the [raylib](https:
     cp -r assets/ build/
     ```
    ```sh
-    ./build/snake
+    ./build/Snake
     ```
 
 ## How to play
