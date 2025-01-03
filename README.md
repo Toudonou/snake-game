@@ -23,7 +23,7 @@ This project is a simple snake game implemented in C++ using the [raylib](https:
     cmake --build build -j8
     ```
    ```sh
-    cp assets build/
+    cp -r assets/ build/
     ```
    ```sh
     ./build/snake
