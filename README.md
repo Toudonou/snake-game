@@ -17,16 +17,16 @@ This project is a simple snake game implemented in C++ using the [raylib](https:
     ```
 3. Build the project using `cmake`:
     ```sh
-    mkdir build && cd build
+    cmake -B build
     ```
    ```sh
-    cmake ..
+    cmake --build build -j8
     ```
    ```sh
-    cmake --build 
+    mv assets build/
     ```
    ```sh
-    ./snake
+    ./build/snake
     ```
 
 ## How to play
