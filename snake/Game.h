@@ -21,7 +21,7 @@ namespace Snake {
         int screenWidth{}, screenHeight{};
         int maxFps{};
         Image icon{};
-        Sound snakeEatingCollisionSound, snakeWallCollisionSound, snakeSelfCollisionSound;
+        Sound snakeEatingCollisionSound{}, snakeWallCollisionSound{}, snakeSelfCollisionSound{};
 
         bool isPaused{};
         bool isGameOver{};

@@ -31,6 +31,7 @@ add_executable(${PROJECT_NAME}  main.cpp
         snake/defines.h
         snake/Snake.cpp
         snake/Snake.h
+        snake/assets_data.h
 )
 target_link_libraries(${PROJECT_NAME} raylib)
 

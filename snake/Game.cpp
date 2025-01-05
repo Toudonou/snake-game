@@ -5,6 +5,8 @@
 #include "raylib.h"
 #include "Game.h"
 
+#include "assets_data.h"
+
 namespace Snake {
     Game::Game() {
         Init();
@@ -49,14 +51,20 @@ namespace Snake {
         InitAudioDevice();
 
         SetTargetFPS(maxFps);
-        icon = LoadImage("assets/textures/apple.png");
+        icon = LoadImageFromMemory(".png", apple_data_png, apple_data_png_len);
         SetWindowIcon(icon);
-        snakeEatingCollisionSound = LoadSound("assets/sounds/snake_eat.wav");
-        snakeWallCollisionSound = LoadSound("assets/sounds/snake_wall_collision.wav");
-        snakeSelfCollisionSound = LoadSound("assets/sounds/snake_self_collision.wav");
+        snakeEatingCollisionSound = LoadSoundFromWave(
+            LoadWaveFromMemory(".wav", snake_eat_wav, snake_eat_wav_len)
+        );
+        snakeWallCollisionSound = LoadSoundFromWave(
+            LoadWaveFromMemory(".wav", snake_wall_collision_wav, snake_wall_collision_wav_len)
+        );
+        snakeSelfCollisionSound = LoadSoundFromWave(
+            LoadWaveFromMemory(".wav", snake_self_collision_wav, snake_self_collision_wav_len)
+        );
     }
 
-    void Game::Update(int &fpsCounter) {
+    void Game::Update(int& fpsCounter) {
         if (CollisionSnakeSnake()) {
             PlaySound(snakeSelfCollisionSound);
             Restart();
@@ -128,7 +136,7 @@ namespace Snake {
     }
 
     bool Game::CollisionSnakeApple() const {
-        for (const auto &part: snake.GetSnakeParts()) {
+        for (const auto& part : snake.GetSnakeParts()) {
             if (part.position == apple.GetPosition()) return true;
         }
         return false;
@@ -136,7 +144,7 @@ namespace Snake {
 
     bool Game::CollisionSnakeSnake() const {
         const auto head = snake.GetSnakeParts().front();
-        for (const auto &part: snake.GetSnakeParts()) {
+        for (const auto& part : snake.GetSnakeParts()) {
             if (part.type != SnakePartType::HEAD && part.position == head.position) return true;
         }
         return false;
